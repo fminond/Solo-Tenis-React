@@ -1,4 +1,4 @@
-export const item = [
+export const ItemMock = [
     {
         name: "Raqueta Babolat Pure Aero",
         price: 94999,
@@ -36,4 +36,3 @@ export const item = [
     }
 ]
 
-export default item;

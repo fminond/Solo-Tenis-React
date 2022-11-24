@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     element: <App/>
 
     },
-    {path:"/category/:id",
+    {path:"/category/:category",
     element: <Category></Category>},
     {path:"/item/:id",
     element: <ItemView></ItemView>
