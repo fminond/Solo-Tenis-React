@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Box from './components/Box';
 import ItemListContainer from './components/ItemListContainer';
 import PokeApi from './components/PokeApi';
+import { LayOut } from './components/Layout';
 
 
 
@@ -44,14 +45,17 @@ function App() {
     <div className="App">
 
       <main>
-        <NavBar></NavBar>
-        <div>The count is: {count}</div>
-        <button onClick={() => setCount(count + 1)}>Raise up the counting</button>
-        <Header name={name} setName={setName} />
+         {/* <div>The count is: {count}</div>
+        <button onClick={() => setCount(count + 1)}>Raise up the counting</button> */}
+        {/* <Header name={name} setName={setName} /> */}
+        
+        {/* <div> {show ? <Box></Box> : null} </div> */}
+        {/* <button onClick={Appear}> XD </button> */}
+        <LayOut>
         <Body></Body>
-        <div> {show ? <Box></Box> : null} </div>
-        <button onClick={Appear}> XD </button>
-        <ItemListContainer />
+          <ItemListContainer />
+        </LayOut>
+        
 
 
         <Footer></Footer>

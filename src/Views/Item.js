@@ -1,11 +1,10 @@
 import { LayOut } from "../components/Layout";
+import ItemDetailContainer from "../components/itemDetailContainer";
 
 const ItemView = () => {
     return (
         <LayOut>
-            <h1>
-                ItemView
-            </h1>
+           <ItemDetailContainer/>
         </LayOut>
     )
 }
