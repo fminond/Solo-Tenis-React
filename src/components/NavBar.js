@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import logo from '../assets/logo-solo-tenis.jpg';
 import { Link } from "react-router-dom";
+import CartWidget from './CartWidget';
 
 
 function NavBar() {
@@ -51,9 +52,7 @@ function NavBar() {
                     title="Clothes"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-
-
-                    <NavDropdown.Item href="#action3">Shorts</NavDropdown.Item>
+                     <NavDropdown.Item href="#action3">Shorts</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
                       T-shirts
                     </NavDropdown.Item>
@@ -61,6 +60,11 @@ function NavBar() {
                       Socks
                     </NavDropdown.Item>
                   </NavDropdown>
+                  <Link to ="/cart">
+                     <div>
+                  <CartWidget></CartWidget>
+                    </div>
+                </Link>  
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
@@ -71,6 +75,7 @@ function NavBar() {
                   />
                   <Button variant="outline-success">Search</Button>
                 </Form>
+                
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
