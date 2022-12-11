@@ -10,14 +10,18 @@ const ItemDetailContainer = () => {
   const {id} =useParams();
 
   useEffect(() => {
-    new Promise((resolve) => setTimeout(() => resolve(ItemMock.find((item)=>item.id===id)), 1000)).then(
-      (data) => setItem(data)
-    );
+    new Promise((resolve) =>
+    //Simulation of a call to an API
+    setTimeout(() => {
+    const itemFiltered = ItemMock.find((item)=>item.id===id)
+    resolve(itemFiltered);
+   } ,1000)
+    .then((data) => setItem(data)));
   }, [id]);
 
   if (!item) {
     return <p>Loading...</p>;
-  }
+  } 
 
   return(
     <div>

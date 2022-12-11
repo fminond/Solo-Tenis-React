@@ -8,7 +8,10 @@ import Box from './components/Box';
 import ItemListContainer from './components/ItemListContainer';
 import PokeApi from './components/PokeApi';
 import { LayOut } from './components/Layout';
-
+import { cartContext, CartContextProvider, Context } from "./context/cartContext"
+import React,{createContext} from 'react';
+import {ComponentA} from "./practicecomponents/ComponentA"
+ 
 
 
 <><><script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script><script
@@ -25,8 +28,7 @@ import { LayOut } from './components/Layout';
 
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("Feche");
+
   const [show, setShow] = useState(true);
 
   const Appear = () => {
@@ -42,29 +44,21 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <CartContextProvider>
+      <div className="App">
+        {/* <ComponentA/>
 
-      <main>
-         {/* <div>The count is: {count}</div>
-        <button onClick={() => setCount(count + 1)}>Raise up the counting</button> */}
-        {/* <Header name={name} setName={setName} /> */}
-        
-        {/* <div> {show ? <Box></Box> : null} </div> */}
-        {/* <button onClick={Appear}> XD </button> */}
-        <LayOut>
-        <Body></Body>
-          <ItemListContainer />
-        </LayOut>
-        
+        <main> */}
+          <LayOut>
+          
+            <ItemListContainer />
+          </LayOut>
+          <Footer/>
+        {/* </main> */}
+      </div>
 
+    </CartContextProvider>
 
-        <Footer></Footer>
-
-
-
-
-      </main>
-    </div>
   );
 }
 
