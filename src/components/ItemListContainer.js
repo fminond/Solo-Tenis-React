@@ -13,7 +13,7 @@ export const ItemListContainer = () => {
   }
 
   return (
-    <div className="h-full">
+    <div>
       <ItemList products={items} />
     </div>
   );

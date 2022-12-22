@@ -16,16 +16,16 @@ const CartView = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col max-w-[50%]">
+      <div>
         {items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center">
-            <img src={EmptyCart} alt="Empty Cart" className="w-44 h-44" />
-            <h1 className="text-2xl">No has agregado productos</h1>
+          <div>
+            <img src={EmptyCart} alt="Empty Cart"/>
+            <h1>You haven't added products yet</h1>
             <button
               onClick={() => navigate("/")}
-              className="rounded-lg p-2 bg-gray-800 text-white mt-4"
+
             >
-              Ir al Inicio
+              Back to Home
             </button>
           </div>
         ) : (
@@ -33,9 +33,8 @@ const CartView = () => {
             <div className="flex gap-4">
               {items.map((product) => {
                 const quantityAdded = product.quantityAdded;
-
                 return (
-                  <div className="relative">
+                  <div>
                     <Item
                       product={product.item}
                       quantityAdded={quantityAdded}
@@ -45,17 +44,19 @@ const CartView = () => {
                 );
               })}
             </div>
-            <div className="flex justify-end mt-4">
-              <div className="flex flex-col">
+            <div className="flex justify-end mt-1">
+              <div>
                 <span>
-                  Total a pagar: <strong>${totalAmount}</strong>
+                  Total amount: ${totalAmount}
                 </span>
+                <div className="checkout">
                 <button
                   onClick={goToCheckout}
-                  className="rounded-lg p-2 bg-gray-800 text-white"
                 >
-                  Ir al Checkout
+                 Checkout
                 </button>
+                </div>
+                
               </div>
             </div>
           </div>

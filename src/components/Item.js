@@ -6,8 +6,8 @@ export const Item = ({ product, quantityAdded }) => {
   const navigate = useNavigate();
   const img = useGetItemImg(product.img);
 
-  const description = product.description.slice(0, 30);
-  const title = product.name.slice(0, 20);
+  const description = product.description.slice(0, 100);
+  const title = product.name
 
   function handleNavigate() {
     navigate(`/item/${product.id}`);
@@ -29,12 +29,12 @@ export const Item = ({ product, quantityAdded }) => {
           alt="Product"
         />
         <span className="text-2xl font-bold">
-          {product.name.length > 20 ? `${title} ...` : product.name}
+          {product.name}
         </span>
         <hr className="mb-2" />
         <p className="mb-2">
           {product.description.length > 30
-            ? `${description} ...`
+            ? `${description} (more)`
             : product.description}
         </p>
       </div>
@@ -46,10 +46,10 @@ export const Item = ({ product, quantityAdded }) => {
             className={product.stock === 0 ? "text-xs text-red-500" : "text-xs"}
           >
             {product.stock === 0
-              ? "Sin Stock"
+              ? "Run out of stock"
               : quantityAdded
-              ? `Agregados: ${quantityAdded}`
-              : `En Stock: ${product.stock}`}
+              ? `Added: ${quantityAdded}`
+              : `Stock: ${product.stock}`}
           </span>
         </div>
       </div>

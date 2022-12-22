@@ -1,7 +1,4 @@
 import ClipLoader from "react-spinners/ClipLoader";
-
-
-
 export const Loading = () => {
  
   return (

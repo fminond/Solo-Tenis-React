@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { CartContext } from "../context/cartContext";
 
-// firebase
 import {doc,getFirestore,addDoc,collection,updateDoc } from "firebase/firestore";
 
 const CheckoutView = () => {
@@ -16,7 +15,7 @@ const CheckoutView = () => {
     return quantity * price;
   };
 
-  const handleFinalizePurchase = (event) => {
+  const handlePurchase = (event) => {
     event.preventDefault();
     const name = event.target[0].value;
     const phone = event.target[1].value;
@@ -52,11 +51,10 @@ const CheckoutView = () => {
 
       items.forEach((element) => {
         const itemRef = doc(db, "items", element.item.id);
-        const dataToUpdate = {
+        const updatedData = {
           stock: element.item.stock - element.quantityAdded,
         };
-        updateDoc(itemRef, dataToUpdate)
-          .then(() => {
+        updateDoc(itemRef, updatedData).then(() => {
             clear();
             setIsLoading(false);
             alert("Compra finalizada");
@@ -70,35 +68,40 @@ const CheckoutView = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleFinalizePurchase} className="flex flex-col w-1/2">
+      <form onSubmit={handlePurchase} className="flex flex-col w-1/2">
         <div className="flex flex-col">
           <input
             className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Nombre Completo"
+            placeholder="Complete name"
             required
           />
           <input
             className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Numero de Telefono"
+            placeholder="Telephone number"
             type="number"
             required
           />
           <input
             className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Email"
+            placeholder="Mail"
             type={"email"}
+            required
+          />
+          <input
+            className="h-8 pl-4 mb-4 rounded-md"
+            placeholder="Direction"
             required
           />
         </div>
         <span>
-          Total a pagar: <strong>${totalAmount}</strong>
+         Total Amount: ${totalAmount}
         </span>
         <button
           type="submit"
-          className="rounded-lg p-2 bg-gray-800 text-white disabled:opacity-50"
+          className="rounded-lg p-2"
           disabled={isLoading}
         >
-          Finalizar
+          ¡Buy! 
         </button>
       </form>
     </Layout>
