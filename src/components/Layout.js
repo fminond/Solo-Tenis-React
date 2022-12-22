@@ -1,13 +1,10 @@
-import NavBar from "./NavBar"
+import NavbarComponent from "./NavBar";
 
-export const LayOut = ({ children }) => {
-    return (
-        <main>
-            <div>
-                <NavBar></NavBar>
-                {children}
-            </div>
-        </main>
-    )
-
-}
+export const Layout = ({ children }) => {
+  return (
+    <main className="flex flex-col h-screen bg-slate-200">
+      <NavbarComponent />
+      <section className="pt-10 flex justify-center">{children}</section>
+    </main>
+  );
+};

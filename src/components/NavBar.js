@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import CartWidget from './CartWidget';
 
 
-function NavBar() {
+function NavbarComponent() {
   return (
     <>
       {[false].map((expand) => (
@@ -34,7 +34,7 @@ function NavBar() {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <Link to="/"> Only Tennis </Link>
+                  <Link to="/"> <Nav.Link href="#onlytennis">Only Tennis </Nav.Link></Link>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -45,26 +45,26 @@ function NavBar() {
                   </Link>
 
                   <Link to="/category/raquets"><Nav.Link href="#raquets">Raquets </Nav.Link></Link>
-                 
+
 
                   <Link to="/category/balls"><Nav.Link href="#balls">Balls </Nav.Link></Link>
                   <NavDropdown
                     title="Clothes"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                     <NavDropdown.Item href="#action3">Shorts</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      T-shirts
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
-                      Socks
-                    </NavDropdown.Item>
+                    {/* Navigation on NavBarDropdown Clothes*/}
+                    <Link to="/category/shorts"><NavDropdown.Item href="#shorts">
+                      Shorts</NavDropdown.Item> </Link>
+                    <Link to="/category/tShirts"><NavDropdown.Item href="#t-shirts">
+                      T-shirts</NavDropdown.Item> </Link>
+                    <Link to="/category/socks"><NavDropdown.Item href="#socks">
+                      Socks </NavDropdown.Item></Link>
                   </NavDropdown>
-                  <Link to ="/cart">
-                     <div>
-                  <CartWidget></CartWidget>
+                  <Link to="/cart">
+                    <div>
+                      <CartWidget></CartWidget>
                     </div>
-                </Link>  
+                  </Link>
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
@@ -75,7 +75,7 @@ function NavBar() {
                   />
                   <Button variant="outline-success">Search</Button>
                 </Form>
-                
+
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
@@ -85,4 +85,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavbarComponent;

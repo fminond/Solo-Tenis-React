@@ -1,14 +1,11 @@
-import Item from "./Item"
+import { Item } from "./Item";
 
-const ItemList = ({ listProducts }) => {
-    return (
-        <ul>
-            {listProducts.map((listProduct) => (
-                <Item listProduct={listProduct} />
-            ))}
-
-        </ul>
-    )
-}
-
-export default ItemList; 
+export const ItemList = ({ products }) => {
+  return (
+    <ul className="flex items-center justify-center gap-4">
+      {products.map((product) => (
+        <Item product={product} />
+      ))}
+    </ul>
+  );
+};
