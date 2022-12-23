@@ -30,7 +30,7 @@ const CartView = () => {
           </div>
         ) : (
           <div>
-            <div className="flex gap-4">
+            <div>
               {items.map((product) => {
                 const quantityAdded = product.quantityAdded;
                 return (
@@ -44,7 +44,7 @@ const CartView = () => {
                 );
               })}
             </div>
-            <div className="flex justify-end mt-1">
+            <div className="mt-1">
               <div>
                 <span>
                   Total amount: ${totalAmount}

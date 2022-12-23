@@ -20,6 +20,7 @@ const CheckoutView = () => {
     const name = event.target[0].value;
     const phone = event.target[1].value;
     const email = event.target[2].value;
+    const direction = event.target[2].value;
 
     setIsLoading(true);
 
@@ -30,7 +31,7 @@ const CheckoutView = () => {
       .reduce((previousValue, currentValue) => previousValue + currentValue);
 
     const order = {
-      buyer: { name, phone, email },
+      buyer: { name, phone, email,direction },
       items,
       total,
     };
@@ -41,7 +42,6 @@ const CheckoutView = () => {
       .then(() => {
         setUpdatingProducts(true);
       })
-      .catch((err) => console.error({ err }))
       .finally(() => {});
   };
 
@@ -57,38 +57,38 @@ const CheckoutView = () => {
         updateDoc(itemRef, updatedData).then(() => {
             clear();
             setIsLoading(false);
-            alert("Compra finalizada");
+            alert("Thank you very much for your purchase. See you soon!");
             navigate("/");
           })
           .catch((err) => console.error(err));
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [updatingProducts]);
 
   return (
     <Layout>
-      <form onSubmit={handlePurchase} className="flex flex-col w-1/2">
-        <div className="flex flex-col">
+      <form onSubmit={handlePurchase}>
+        <div>
           <input
-            className="h-8 pl-4 mb-4 rounded-md"
+            className="mb-3 rounded-md"
             placeholder="Complete name"
             required
           />
           <input
-            className="h-8 pl-4 mb-4 rounded-md"
+            className="mb-3 rounded-md"
             placeholder="Telephone number"
             type="number"
             required
           />
           <input
-            className="h-8 pl-4 mb-4 rounded-md"
+            className="mb-3 rounded-md"
             placeholder="Mail"
             type={"email"}
             required
           />
           <input
-            className="h-8 pl-4 mb-4 rounded-md"
+            className="mb-3 rounded-md"
             placeholder="Direction"
             required
           />
@@ -98,7 +98,6 @@ const CheckoutView = () => {
         </span>
         <button
           type="submit"
-          className="rounded-lg p-2"
           disabled={isLoading}
         >
           ¡Buy! 

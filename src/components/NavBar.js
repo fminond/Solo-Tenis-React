@@ -8,6 +8,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import logo from '../assets/logo-solo-tenis.jpg';
 import { Link } from "react-router-dom";
 import CartWidget from './CartWidget';
+import { NavLink } from 'react-bootstrap';
 
 
 function NavbarComponent() {
@@ -45,8 +46,6 @@ function NavbarComponent() {
                   </Link>
 
                   <Link to="/category/raquets"><Nav.Link href="#raquets">Raquets </Nav.Link></Link>
-
-
                   <Link to="/category/balls"><Nav.Link href="#balls">Balls </Nav.Link></Link>
                   <NavDropdown
                     title="Clothes"
@@ -61,12 +60,10 @@ function NavbarComponent() {
                       Socks </NavDropdown.Item></Link>
                   </NavDropdown>
                   <Link to="/cart">
-                    <div>
-                      <CartWidget></CartWidget>
-                    </div>
+                    <NavLink><CartWidget></CartWidget></NavLink>
                   </Link>
                 </Nav>
-                <Form className="d-flex">
+                {/* <Form className="d-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
@@ -74,7 +71,7 @@ function NavbarComponent() {
                     aria-label="Search"
                   />
                   <Button variant="outline-success">Search</Button>
-                </Form>
+                </Form> */}
 
               </Offcanvas.Body>
             </Navbar.Offcanvas>

@@ -4,10 +4,8 @@ import { Loading } from "./Loading";
 
 export const Item = ({ product, quantityAdded }) => {
   const navigate = useNavigate();
-  const img = useGetItemImg(product.img);
-
   const description = product.description.slice(0, 100);
-  const title = product.name
+  const img = useGetItemImg(product.img);
 
   function handleNavigate() {
     navigate(`/item/${product.id}`);
@@ -20,36 +18,30 @@ export const Item = ({ product, quantityAdded }) => {
   return (
     <div
       onClick={handleNavigate}
-      className="flex flex-col w-[200px] h-[350px] bg-white rounded p-4 shadow cursor-pointer transition-all hover:shadow-lg"
     >
       <div className="box">
         <img
           src={img}
-          className="w-full h-[100px] object-cover mb-2"
-          alt="Product"
+          alt="Products"
         />
-        <span className="text-2xl font-bold">
+        <span className="nameProduct">
           {product.name}
         </span>
-        <hr className="mb-2" />
-        <p className="mb-2">
-          {product.description.length > 30
-            ? `${description} (more)`
-            : product.description}
-        </p>
+        <hr className="mb-1" />
+        <p className="mb-1">
+          {`${description} (more)`}
+          </p>
       </div>
-      <div className="flex flex-col">
-        <hr className="mb-2" />
-        <div className="flex justify-between items-center">
-          <span className="font-bold">${product.price}</span>
-          <span
-            className={product.stock === 0 ? "text-xs text-red-500" : "text-xs"}
-          >
+      <div >
+        <hr className="mb-1" />
+        <div>
+          <span><strong>${product.price}</strong></span>
+          <span>
             {product.stock === 0
-              ? "Run out of stock"
+              ? " Run out of stock"
               : quantityAdded
-              ? `Added: ${quantityAdded}`
-              : `Stock: ${product.stock}`}
+              ? ` Added: ${quantityAdded}`
+              : ` Stock: ${product.stock}`}
           </span>
         </div>
       </div>

@@ -3,9 +3,9 @@ import NavbarComponent from "./NavBar";
 
 export const Layout = ({ children }) => {
   return (
-    <main className="flex flex-col h-screen bg-slate-200">
+    <main>
       <NavbarComponent />
-      <section className="pt-10 flex justify-center">{children}
+      <section>{children}
       <Footer></Footer>
       </section>
      

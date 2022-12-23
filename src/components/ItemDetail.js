@@ -1,11 +1,9 @@
-import { useGetItemImg } from "../hooks/useGetItemImg";
-import { ItemCount } from "./ItemCount";
-import { Loading } from "./Loading";
 import { CartContext } from "../context/cartContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import { useGetItemImg } from "../hooks/useGetItemImg";
+import { ItemCount } from "./ItemCount";
+import { Loading } from "./Loading";
 
 const ItemDetail = ({ item }) => {
   const { addItem, isInCart } = useContext(CartContext);
@@ -37,7 +35,7 @@ const ItemDetail = ({ item }) => {
   return (
 
     <div >
-      {/* Item image */}
+      {/* Item images code */}
       <div className="box">
         {!img ? (
           <Loading />
@@ -45,30 +43,30 @@ const ItemDetail = ({ item }) => {
           <img src={img} alt={item.name} />
         )}
       </div>
-      
 
-      {/* Item description */}
-      <div className="flex flex-col justify-center pl-10">
-        <h2 className="text-3xl font-bold text-gray-800">{item.name}</h2>
-        <p className="mt-4 text-xl">{item.description}</p>
-        <span className="mt-4 text-xl">
-          Price: <strong className="text-gray-800">${item.price}</strong>
+
+      {/* Items description code */}
+      <div>
+        <h2>{item.name}</h2>
+        <p className="mt-3">{item.description}</p>
+        <span className="mt-4">
+          Price: <strong>${item.price}</strong>
         </span>
         {currentStock > 0 && (
-          <p className="text-sm">Stock: {currentStock}</p>
+          <p>Stock: {currentStock}</p>
         )}
 
-        <div className="flex flex-col flex-1 items-center">
-          {/* Count */}
+        <div>
+          {/* Counter code */}
           {currentStock > 0 ? (
             <ItemCount count={count} handleCount={handleCount} />
           ) : (
-            <span className="text-red-500 mt-10">Out of stock</span>
+            <span><strong>Out of stock</strong></span>
           )}
-          <div className="w-full flex flex-col items-center">
+          <div>
             <button
               onClick={handleAdd}
-              className="w-4/5 bg-gray-200 px-4 py-2 mt-2 rounded disabled:opacity-40"
+              className="mt-2 rounded disabled:opacity-60"
               disabled={currentStock === 0}
             >
               Add to cart
@@ -76,9 +74,9 @@ const ItemDetail = ({ item }) => {
             <button
               disabled={!isInCart(item.id)}
               onClick={handleCheckout}
-              className="w-4/5 bg-gray-800 text-white px-4 py-2 mt-2 rounded disabled:opacity-50"
+              className="mt-4 rounded "
             >
-              CheckOut
+              Cart
             </button>
           </div>
         </div>
