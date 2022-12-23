@@ -18,7 +18,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// IF I PUT THE PROCESS WITH THE .ENV HERE, THE PRODUCTS DOESN'T SHOW. 
 const firebaseConfig = {
   apiKey: "AIzaSyAZcwOBb04eV5D9SjMGPAHvpnv6P9RB1wI",
   authDomain: "ecommerce-final-2292d.firebaseapp.com",
