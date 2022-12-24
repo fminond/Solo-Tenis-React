@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useGetItemImg } from "../hooks/useGetItemImg";
 import { ItemCount } from "./ItemCount";
 import { Loading } from "./Loading";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const ItemDetail = ({ item }) => {
   const { addItem, isInCart } = useContext(CartContext);
@@ -37,23 +39,32 @@ const ItemDetail = ({ item }) => {
     <div >
       {/* Item images code */}
       <div className="box">
+      
         {!img ? (
           <Loading />
         ) : (
-          <img src={img} alt={item.name} />
+          <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top"src={img} /></Card>
         )}
       </div>
 
 
       {/* Items description code */}
       <div>
-        <h2>{item.name}</h2>
-        <p className="mt-3">{item.description}</p>
+        {/* <h2>{item.name}</h2>
+        <p className="mt-3">{item.description}</p> */}
+         <Card.Body>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Text>
+         {item.description}
+        </Card.Text>
+        </Card.Body>
         <span className="mt-4">
           Price: <strong>${item.price}</strong>
         </span>
         {currentStock > 0 && (
           <p>Stock: {currentStock}</p>
+           
         )}
 
         <div>

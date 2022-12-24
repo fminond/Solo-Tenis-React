@@ -19,7 +19,7 @@ const CartView = () => {
       <div>
         {items.length === 0 ? (
           <div>
-            <img src={EmptyCart} alt="Empty Cart"/>
+            <img className="CartSize" src={EmptyCart} alt="Empty Cart"/>
             <h1>You haven't added products yet</h1>
             <button
               onClick={() => navigate("/")}
